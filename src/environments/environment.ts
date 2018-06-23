@@ -17,15 +17,20 @@ export const environment = {
 
   // AUTH Config:
   auth : {
+    // Custom errors messages:
     errors: {
       email : 'E-mail obligatoire!',
       password1 : '8 Symbols au minimum',
       'auth/email-already-in-use' : 'Cette adresse mail est déja utilisée par un autre compte!',
       'auth/wrong-password' : 'Mot de passe incorrecte',
       'auth/user-not-found' : 'Aucun utilisateur ne correspond à cette adresse',
+      // To get complete errors' codes check:
+      // https://firebase.google.com/docs/auth/admin/errors
     },
 
     SUCCESS_URL : '',
+
+    // Url to authenticate to your backend using firebase UIDToken
     BACKEND_AUTH_URL : 'http://localhost:8000/auth/login/',
   }
 
