@@ -1,0 +1,17 @@
+
+.firebaseui-idp-button{
+  max-width: 100%;
+}
+
+.ou {
+    width: 100%;
+     text-align: center;
+     border-bottom: 2px solid #DDD;
+     line-height: 0.1em;
+     margin: 10px 0 20px;
+}
+
+.ou span {
+  background: #FFF;
+  padding: 0 10px;
+}

@@ -1,0 +1,64 @@
+<div class="">
+  <!-- <h3>Login {{loggedIn}}</h3> -->
+
+  <div *ngIf="!loggedIn; else loggedInDiv">
+
+    <firebase-ui></firebase-ui>
+
+
+    <div class="ou d-block my-4">
+      <span>OU</span>
+    </div>
+
+    <form [formGroup]="rForm" (ngSubmit)="submit(rForm.value)">
+
+      <div class="form-group d-block">
+              <input type="email"
+                     class="form-control"
+                     id="InputEmail1"
+                     aria-describedby="emailHelp"
+                     placeholder="Entrez votre email"
+                     formControlName="email"
+                     [ngClass]="{'is-invalid' : !rForm.controls['email'].valid && rForm.controls['email'].touched }">
+                <div class="invalid-feedback">
+                  {{emailAlert}}
+                </div>
+            </div>
+
+
+            <div class="form-group d-block">
+              <input type="password"
+                     class="form-control"
+                     id="InputPassword"
+                     placeholder="Mot de passe"
+                     formControlName="password"
+                     [ngClass]="{'is-invalid' : !rForm.controls['password'].valid && rForm.controls['password'].touched }">
+              <div class="invalid-feedback">
+                {{password1Alert}}
+              </div>
+            </div>
+
+
+
+            <div *ngIf="nonFieldErrors" class="alert alert-warning" role="alert">
+              <small>{{nonFieldErrors}}</small>
+            </div>
+
+
+            <div class="">
+                <button class="btn btn-primary w-100"
+                        type="submit"
+                        [disabled]="!rForm.valid || loading"
+                        data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order">
+                        Sign in</button>
+            </div>
+    </form>
+  </div>
+
+
+  <ng-template #loggedInDiv>
+    <p>Logged in</p>
+  </ng-template>
+
+
+</div>

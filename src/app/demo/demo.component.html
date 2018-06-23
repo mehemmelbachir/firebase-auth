@@ -1,0 +1,51 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container pb-5">
+  <!-- navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">{{title}}</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="javascript:void(0);" routerLink="/login">Login</a>
+      <a class="nav-item nav-link" href="javascript:void(0);" routerLink="/register">Register</a>
+      <!-- <a class="nav-item nav-link disabled" href="#">Disabled</a> -->
+    </div>
+  </div>
+
+  <div *ngIf="user" class="">
+    <span>{{user.displayName}}</span>
+    <button class="btn btn-primary mx-3" (click)="logout()">
+      Logout
+    </button>
+  </div>
+
+</nav>
+
+<div class="row my-5">
+  <div class="col-md-4 offset-md-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<hr>
+<h3>From Firebase User UIDToken to DRF auth token</h3>
+
+<p>firebase-auth handle custom backend authentication starting from firebase UIDToken,
+the backend should verify the firebase token and generate a
+<b><a href="http://www.django-rest-framework.org/api-guide/authentication/#tokenauthentication" target="_blank">Django-rest-framework auth token</a>  </b>
+</p>
+<div *ngIf="user; else loginBtn">
+  <button class="btn btn-primary d-inline" (click)="getToken()">get token</button>
+  <p class="d-inline p-2">{{token}}</p>
+</div>
+
+<ng-template #loginBtn>
+  <p>Not logged in, <a routerLink="login">login</a> to get DRF auth token </p>
+</ng-template>
+
+
+
+</div>
